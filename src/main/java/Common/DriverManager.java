@@ -13,20 +13,12 @@ public class DriverManager {
         Constant.WEBDRIVER.navigate().to(Constant.TA_DASHBOARD_URL);
     }
 
-    public static void maxScreen(){
+    public static void maximizedWindow(){
         Constant.WEBDRIVER.manage().window().maximize();
     }
 
     public static void acceptAlert(){
-        try{
-            WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, Duration.ofSeconds(10));
-            wait.until(ExpectedConditions.alertIsPresent());
-            Alert alert = Constant.WEBDRIVER.switchTo().alert();
-            alert.accept();
-        }
-        catch(Exception e){
-            System.out.println("No such alert error!");
-        }
+        Constant.WEBDRIVER.switchTo().alert().accept();
     }
 
     public static void getBrowserDriver(String browser) {
@@ -40,5 +32,9 @@ public class DriverManager {
                 Constant.WEBDRIVER = new FirefoxDriver();
                 break;
         }
+    }
+
+    public static void quitDriver() {
+        Constant.WEBDRIVER.quit();
     }
 }
