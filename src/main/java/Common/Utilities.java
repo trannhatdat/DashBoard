@@ -2,6 +2,9 @@ package Common;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+import java.util.concurrent.TimeUnit;
 
 public class Utilities {
     public static String getProjectPath() {
@@ -9,7 +12,12 @@ public class Utilities {
         return currentDirectory + "/src/main/java/";
     }
 
-    public void scrollToElement(WebElement element) {
+    public static void scrollToElement(WebElement element) {
         ((JavascriptExecutor) Constant.WEBDRIVER).executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    public static void moveToElement(WebElement element) {
+        Actions actions = new Actions(Constant.WEBDRIVER);
+        actions.moveToElement(element);
     }
 }

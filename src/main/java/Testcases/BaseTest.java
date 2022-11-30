@@ -12,6 +12,8 @@ public class BaseTest {
         System.out.println("Pre-condition");
         DriverManager.getBrowserDriver(browser);
         DriverManager.maximizedWindow();
+        DriverManager.implicitlyWait();
+        DriverManager.pageLoadTimeout();
         DriverManager.open();
     }
 
