@@ -1,6 +1,7 @@
 package PageObjects;
 
 import Common.Constant;
+import DataObjects.AddPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -74,5 +75,14 @@ public class AddPagePopup {
 
     public void clickCancel() {
         this.getBtnCancel().click();
+    }
+
+    public void addNewPage(AddPage addPage) {
+        inputPageName(addPage.getPageName());
+        selectParentPage(addPage.getParentPage());
+        selectColumnNumber(addPage.getColumnNumber());
+        selectDisplayAfter(addPage.getDisplayAfter());
+        checkPublic();
+        clickOK();
     }
 }
