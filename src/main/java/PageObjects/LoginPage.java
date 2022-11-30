@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 public class LoginPage extends GeneralPage{
     //Locators
     private final By sltRepository = By.id("repository");
-    private final By txtUsername = By.id("usermane");
+    private final By txtUsername = By.id("username");
     private final By txtPassword = By.id("password");
     private final By btnLogin = By.xpath("//div[@class='btn-login']");
 
@@ -44,8 +44,7 @@ public class LoginPage extends GeneralPage{
         this.getTxtPassword().sendKeys(password);
     }
 
-    public void login(User user, String repos) {
-        selectRepository(repos);
+    public void login(User user) {
         inputUsername(user.getUsername());
         inputPassword(user.getPassword());
         this.getBtnLogin().click();
