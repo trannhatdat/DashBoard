@@ -1,7 +1,7 @@
 package Testcases.DA_PANEL;
 
 import DataObjects.User;
-import PageObjects.AddNewPanelPopupPage;
+import PageObjects.AddNewPanelPopup;
 import PageObjects.LoginPage;
 import Testcases.BaseTest;
 import org.apache.logging.log4j.LogManager;
@@ -18,7 +18,7 @@ public class Testcase050 extends BaseTest {
         logger.info("Navigate to Dashboard login page and login with 'administrator' username");
         loginPage.login(user);
 
-        AddNewPanelPopupPage addNewPanelPopup = new AddNewPanelPopupPage();
+        AddNewPanelPopup addNewPanelPopup = new AddNewPanelPopup();
         addNewPanelPopup.addNewPanel("Logigear","Name");
         
     }

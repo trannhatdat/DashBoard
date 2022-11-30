@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-public class AddNewPanelPopupPage extends GeneralPage {
+public class AddNewPanelPopup extends GeneralPage {
     //Locator
     private final By lnkAddNew = By.xpath("//a[.='Add New']");
     private final By txtDisplayName = By.xpath("//input[@id='txtDisplayName']");
