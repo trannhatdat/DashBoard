@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 
 public class Testcase010 extends BaseTest {
     private static final org.apache.log4j.Logger logger = org.apache.log4j.LogManager.getLogger(Testcase010.class);
+
     @Test
     public void DA_LOGIN_TC010() {
         LoginPage loginPage = new LoginPage();
@@ -20,6 +21,5 @@ public class Testcase010 extends BaseTest {
         logger.info("Login with blank username and password");
         loginPage.login(user);
         Assert.assertTrue(DriverManager.isAlertPresent());
-        //aaaa
     }
 }
