@@ -5,6 +5,8 @@ import Common.Utilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class GeneralPage {
     //Locators
     private final By tabOverview = By.xpath("//a[@href='/TADashboard/2f9njfdusj.page']");
@@ -14,6 +16,8 @@ public class GeneralPage {
     private final By btnAddPage = By.xpath("//a[text()='Add Page']");
     private final By btnCreateProfile = By.xpath("//a[text()='Create Profile']");
     private final By btnCreatePanel = By.xpath("//a[text()='Create Panel']");
+    private final By btnEdit = By.xpath("//a[@class='edit']");
+    private final By btnDelete = By.xpath("//a[@class='delete']");
     private final By ddbWelcome = By.xpath("//a[@href='#Welcome']");
     private final By btnMyProfile = By.xpath("//a[text()='My Profile']");
     private final By btnLogout = By.xpath("//a[text()='Logout']");
@@ -25,6 +29,7 @@ public class GeneralPage {
     private final By btnPanels = By.xpath("//a[text()='Panels']");
     private final By btnHelp = By.xpath("//a[@href='help/Topics/Dashboard.html']");
     private final By btnLabManager = By.xpath("//li[@class='hasbg h-lab']/a");
+    private final By listPage = By.xpath("//li[@class='mn-panels']/preceding-sibling::li/a");
 
     //Elements
     protected WebElement getTabOverView() {
@@ -53,6 +58,14 @@ public class GeneralPage {
 
     protected WebElement getBtnCreatePanel() {
         return Constant.WEBDRIVER.findElement(btnCreatePanel);
+    }
+
+    protected WebElement getBtnEdit() {
+        return Constant.WEBDRIVER.findElement(btnEdit);
+    }
+
+    protected WebElement getBtnDelete() {
+        return Constant.WEBDRIVER.findElement(btnDelete);
     }
 
     protected WebElement getDdbWelcome() {
@@ -99,6 +112,10 @@ public class GeneralPage {
         return Constant.WEBDRIVER.findElement(btnLabManager);
     }
 
+    protected List<WebElement> getListPage() {
+        return Constant.WEBDRIVER.findElements(listPage);
+    }
+
     //Methods
     public void gotoOverView() {
         this.getTabOverView().click();
@@ -126,6 +143,14 @@ public class GeneralPage {
 
     public void clickCreatePanel() {
         this.getBtnCreatePanel().click();
+    }
+
+    public void clickEdit() {
+        this.getBtnEdit().click();
+    }
+
+    public void clickDelete() {
+        this.getBtnDelete().click();
     }
 
     public void moveToWelcome() {
@@ -170,5 +195,11 @@ public class GeneralPage {
 
     public void clickLabManager() {
         this.getBtnLabManager().click();
+    }
+
+    public void showListPage() {
+        getListPage().stream().forEach(e -> {
+            System.out.print("| " + e.getText() + " |");
+        });
     }
 }
