@@ -54,10 +54,10 @@ public class DriverManager {
         {
             Constant.WEBDRIVER.switchTo().alert();
             return true;
-        }   // try
+        }
         catch (NoAlertPresentException Ex)
         {
             return false;
-        }   // catch
+        }
     }
 }

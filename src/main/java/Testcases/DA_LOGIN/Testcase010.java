@@ -15,6 +15,7 @@ public class Testcase010 extends BaseTest {
     @Test
     public void DA_LOGIN_TC010() {
         LoginPage loginPage = new LoginPage();
+        logger.info("TC 010");
         User user = new User("", "");
         logger.info("Login with blank username and password");
         loginPage.login(user);
