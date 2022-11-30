@@ -4,4 +4,4 @@
 .gitignore
 .iml
 ExtentReport.html
-/testng.xml
+testng.xml
