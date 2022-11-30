@@ -5,14 +5,15 @@ import DataObjects.User;
 import PageObjects.AddPagePopup;
 import PageObjects.LoginPage;
 import Testcases.BaseTest;
+import Testcases.DA_LOGIN.Testcase010;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 
 public class Testcase025 extends BaseTest {
+    private static final org.apache.log4j.Logger logger = org.apache.log4j.LogManager.getLogger(Testcase025.class);
     @Test
     public void TC025() throws InterruptedException {
-        Logger logger = LogManager.getLogger();
         LoginPage loginPage = new LoginPage();
         AddPagePopup addPage = new AddPagePopup();
         User user = new User("administrator","");
