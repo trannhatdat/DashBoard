@@ -19,7 +19,8 @@ public class Testcase005 extends BaseTest {
 
         logger.info("Verify that there is no Login dialog when switching between 2 repositories with the same account");
         logger.info("Navigate to Dashboard login page and login with 'administrator' username");
-        loginPage.login(user, "SampleRepository");
+        loginPage.login(user);
+        logger.info("Change to repository name: WebRepository");
         loginPage.moveToRepository();
         loginPage.clickWebRepository();
 

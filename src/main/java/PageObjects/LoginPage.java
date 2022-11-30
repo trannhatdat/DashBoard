@@ -44,8 +44,7 @@ public class LoginPage extends GeneralPage{
         this.getTxtPassword().sendKeys(password);
     }
 
-    public void login(User user, String repos) {
-        selectRepository(repos);
+    public void login(User user) {
         inputUsername(user.getUsername());
         inputPassword(user.getPassword());
         this.getBtnLogin().click();
