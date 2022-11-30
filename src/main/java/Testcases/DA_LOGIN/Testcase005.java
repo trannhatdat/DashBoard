@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 public class Testcase005 extends BaseTest {
     @Test
-    public void TC005() {
+    public void TC005() throws InterruptedException {
         Logger logger = LogManager.getLogger();
         LoginPage loginPage = new LoginPage();
         User user = new User("administrator","");
@@ -23,6 +23,8 @@ public class Testcase005 extends BaseTest {
         logger.info("Change to repository name: WebRepository");
         loginPage.moveToRepository();
         loginPage.clickWebRepository();
+        Thread.sleep(500);
+        logger.info(loginPage.getNameRepository());
 
         Assert.assertEquals(loginPage.getNameRepository(), "WebRepository");
     }
