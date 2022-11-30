@@ -3,6 +3,7 @@ package PageObjects;
 import Common.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class AddPagePopup {
     //Locators
@@ -49,6 +50,29 @@ public class AddPagePopup {
     }
 
     public void selectParentPage(String parentPage) {
+        Select sltParentPage = new Select(this.getSltParentPage());
+        sltParentPage.selectByVisibleText(parentPage);
+    }
 
+    public void selectColumnNumber(String columnNumber) {
+        Select sltColumnNumber = new Select(this.getSltNumberOfColumns());
+        sltColumnNumber.selectByVisibleText(columnNumber);
+    }
+
+    public void selectDisplayAfter(String display) {
+        Select sltDisplayAfter = new Select(this.getSltDisplayAfter());
+        sltDisplayAfter.selectByVisibleText(display);
+    }
+
+    public void checkPublic() {
+        this.getChbPublic().click();
+    }
+
+    public void clickOK() {
+        this.getBtnOK().click();
+    }
+
+    public void clickCancel() {
+        this.getBtnCancel().click();
     }
 }
