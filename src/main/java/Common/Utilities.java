@@ -1,5 +1,6 @@
 package Common;
 
+import org.apache.log4j.BasicConfigurator;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -19,5 +20,8 @@ public class Utilities {
     public static void moveToElement(WebElement element) {
         Actions actions = new Actions(Constant.WEBDRIVER);
         actions.moveToElement(element);
+    }
+    public static void getLog() {
+        BasicConfigurator.configure();
     }
 }
