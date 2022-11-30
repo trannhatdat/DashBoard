@@ -7,6 +7,7 @@
     <test name="LoginTest" >
         <parameter name="browser" value="chrome"></parameter>
         <classes>
+            <class name="Testcases.DA_LOGIN.Testcase005"></class>
         </classes>
     </test>
 </suite>

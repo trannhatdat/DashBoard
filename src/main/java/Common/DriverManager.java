@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class DriverManager {
     public static void open(){
@@ -36,5 +37,14 @@ public class DriverManager {
 
     public static void quitDriver() {
         Constant.WEBDRIVER.quit();
+    }
+
+    public static void pageLoadTimeout() {
+        Constant.WEBDRIVER.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+
+    }
+
+    public static void implicitlyWait() {
+        Constant.WEBDRIVER.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 }

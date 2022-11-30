@@ -6,12 +6,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
 public class BaseTest {
-    @Parameters({"browsers"})
+    @Parameters({"browser"})
     @BeforeMethod
     public void beforeMethod(String browser) {
         System.out.println("Pre-condition");
         DriverManager.getBrowserDriver(browser);
         DriverManager.maximizedWindow();
+        DriverManager.implicitlyWait();
+        DriverManager.pageLoadTimeout();
         DriverManager.open();
     }
 
