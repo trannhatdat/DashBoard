@@ -60,4 +60,8 @@ public class DriverManager {
             return false;
         }
     }
+
+    public static String getAlertMsg() {
+        return Constant.WEBDRIVER.switchTo().alert().getText();
+    }
 }
