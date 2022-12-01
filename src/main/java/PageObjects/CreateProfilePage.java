@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class CreateProfilePage extends GeneralPage {
+    private final String xpathCheckBox = "//input[@type='checkbox' and @value='%s']";
     //Locators
     private final By txtProfileName = By.xpath("//input[@id='txtProfileName']");
     private final By sltItemType = By.xpath("//select[@id='cbbEntityType']");
@@ -24,7 +25,6 @@ public class CreateProfilePage extends GeneralPage {
     private final By txtValue = By.xpath("//input[@id='txtSearchText']");
     private final By btnAdd = By.xpath("//button[@title='Add condition']");
     private final By btnRemove = By.xpath("//button[@title='Remove condition']");
-    private final By chbName = By.xpath("//input[@type='checkbox' and @value='name']");
 
     //Elements
     private WebElement getTxtProfileName() {
@@ -95,8 +95,8 @@ public class CreateProfilePage extends GeneralPage {
         return Constant.WEBDRIVER.findElement(btnRemove);
     }
 
-    private WebElement getChbName() {
-        return Constant.WEBDRIVER.findElement(chbName);
+    private WebElement getCheckBox(String value) {
+        return Constant.WEBDRIVER.findElement(By.xpath(String.format(xpathCheckBox, value)));
     }
 
     //Methods
@@ -174,7 +174,7 @@ public class CreateProfilePage extends GeneralPage {
         getBtnRemove().click();
     }
 
-    public void checkName() {
-        getChbName().click();
+    public void checkCheckBox(String value) {
+        getCheckBox(value).click();
     }
 }
