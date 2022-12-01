@@ -1,15 +1,20 @@
 package PageObjects;
 
 import Common.Constant;
+import DataObjects.FilterCriteria;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
+
 public class CreateProfilePage extends GeneralPage {
+    private static final org.apache.log4j.Logger logger = org.apache.log4j.LogManager.getLogger(CreateProfilePage.class);
     private final String xpathCheckBox = "//input[@type='checkbox' and @value='%s']";
     //Locators
     private final By txtProfileName = By.xpath("//input[@id='txtProfileName']");
     private final By sltItemType = By.xpath("//select[@id='cbbEntityType']");
+    private final By listItemType = By.xpath("//select[@id='cbbEntityType']/option");
     private final By sltRelatedData = By.xpath("//select[@id='cbbSubReport']");
     private final By btnNext = By.xpath("//input[@value='Next']");
     private final By btnFinish = By.xpath("//input[@value='Finish']");
@@ -23,6 +28,7 @@ public class CreateProfilePage extends GeneralPage {
     private final By sltFilterField = By.xpath("//select[@id='cbbField']");
     private final By sltOperator = By.xpath("//select[@id='cbbCondition']");
     private final By txtValue = By.xpath("//input[@id='txtSearchText']");
+    private final By optCondition = By.xpath("//select[@id='listCondition']/option");
     private final By btnAdd = By.xpath("//button[@title='Add condition']");
     private final By btnRemove = By.xpath("//button[@title='Remove condition']");
 
@@ -33,6 +39,10 @@ public class CreateProfilePage extends GeneralPage {
 
     private WebElement getSltItemType() {
         return Constant.WEBDRIVER.findElement(sltItemType);
+    }
+
+    private List<WebElement> getListItemType() {
+        return Constant.WEBDRIVER.findElements(listItemType);
     }
 
     private WebElement getSltRelatedData() {
@@ -99,6 +109,10 @@ public class CreateProfilePage extends GeneralPage {
         return Constant.WEBDRIVER.findElement(By.xpath(String.format(xpathCheckBox, value)));
     }
 
+    private WebElement getOptCondition() {
+        return Constant.WEBDRIVER.findElement(optCondition);
+    }
+
     //Methods
     public void inputProfileName(String profileName) {
         getTxtProfileName().sendKeys(profileName);
@@ -107,6 +121,12 @@ public class CreateProfilePage extends GeneralPage {
     public void selectItemType(String itemType) {
         Select item = new Select(getSltItemType());
         item.selectByVisibleText(itemType);
+    }
+
+    public void selectAndShowEachItemType() {
+        getListItemType().stream().forEach(e -> {
+            selectItemType(e.getText().toLowerCase());
+        });
     }
 
     public void selectRelatedData(String rData) {
@@ -138,7 +158,7 @@ public class CreateProfilePage extends GeneralPage {
         getBtnUncheckAll().click();
     }
 
-    public void selectField(String item) {
+    public void selectSortField(String item) {
         Select field = new Select(getSltSortField());
         field.selectByVisibleText(item);
     }
@@ -170,11 +190,23 @@ public class CreateProfilePage extends GeneralPage {
         getBtnAdd().click();
     }
 
+    public void AddFilterCriteria(FilterCriteria f) {
+        selectAndOr(f.getAndOr());
+        selectFilterField(f.getField());
+        selectOperator(f.getOperator());
+        inputValue(f.getValue());
+        clickAdd();
+    }
+
     public void clickRemove() {
         getBtnRemove().click();
     }
 
     public void checkCheckBox(String value) {
         getCheckBox(value).click();
+    }
+
+    public String getFilterCriteria() {
+        return getOptCondition().getText();
     }
 }
