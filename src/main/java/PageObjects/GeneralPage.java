@@ -118,83 +118,83 @@ public class GeneralPage {
 
     //Methods
     public void gotoOverView() {
-        this.getTabOverView().click();
+        getTabOverView().click();
     }
 
     public void gotoExecutionDashboard() {
-        this.getTabExecutionDashboard().click();
+        getTabExecutionDashboard().click();
     }
 
     public void clickChoosePanel() {
-        this.getDdbChoosePanel().click();
+        getDdbChoosePanel().click();
     }
 
     public void clickGlobalSetting() {
-        this.getDdbGlobalSetting().click();
+        getDdbGlobalSetting().click();
     }
 
     public void clickAddPage() {
-        this.getBtnAddPage().click();
+        getBtnAddPage().click();
     }
 
     public void clickCreateProfile() {
-        this.getBtnCreateProfile().click();
+        getBtnCreateProfile().click();
     }
 
     public void clickCreatePanel() {
-        this.getBtnCreatePanel().click();
+        getBtnCreatePanel().click();
     }
 
     public void clickEdit() {
-        this.getBtnEdit().click();
+        getBtnEdit().click();
     }
 
     public void clickDelete() {
-        this.getBtnDelete().click();
+        getBtnDelete().click();
     }
 
     public void moveToWelcome() {
-        this.getDdbWelcome().click();
+        getDdbWelcome().click();
     }
 
     public void clickMyProfile() {
-        this.getBtnMyProfile().click();
+        getBtnMyProfile().click();
     }
 
     public void logout() {
-        this.getBtnLogout().click();
+        getBtnLogout().click();
     }
 
     public void moveToRepository() {
-        this.getDdbRepository().click();
+        getDdbRepository().click();
     }
 
     public void clickWebRepository() {
-        this.getBtnWebRepository().click();
+        getBtnWebRepository().click();
     }
 
     public String getNameRepository() {
-        return this.getLblRepository().getText();
+        return getLblRepository().getText();
     }
 
     public void moveToAdminister() {
-        this.getDdbAdminister().click();
+        getDdbAdminister().click();
     }
 
     public void clickDataProfiles() {
-        this.getBtnDataProfiles().click();
+        getBtnDataProfiles().click();
     }
 
     public void clickPanels() {
-        this.getBtnPanels().click();
+        getBtnPanels().click();
     }
 
     public void clickHelp() {
-        this.getBtnHelp().click();
+        getBtnHelp().click();
     }
 
     public void clickLabManager() {
-        this.getBtnLabManager().click();
+        getBtnLabManager().click();
     }
 
     public void showListPage() {
