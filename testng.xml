@@ -8,7 +8,9 @@
         <parameter name="browser" value="chrome"></parameter>
         <classes>
 <!--            <class name="Testcases.DA_LOGIN.Testcase005"></class>-->
-            <class name="Testcases.DA_DP.Testcase097"></class>
+<!--            <class name="Testcases.DA_DP.Testcase097"></class>-->
+            <class name="Testcases.DA_PANEL.Testcase055"></class>
+<!--            <class name="Testcases.DA_MP.Testcase025"></class>-->
         </classes>
     </test>
 </suite>
