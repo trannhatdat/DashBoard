@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 public class PanelConfigrution extends BaseTest {
     //Locator
-    private final By btnOK = By.xpath("//div[@class='div_button']/input[@id='OK']");
+    private final By btnOK = By.xpath("//div[@id='div_panelConfigurationDlg']//input[@id='OK']");
 
     //Element
     private WebElement getBtnOK() {
