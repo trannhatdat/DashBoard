@@ -13,6 +13,7 @@ public class CreatePanelPopup extends GeneralPage {
     private final By btnOk = By.xpath("//input[@id='OK']");
     private final By btnCancel = By.xpath("//input[@id='Cancel']");
     private final By lnkEdit = By.xpath("//td[@class='center']/a[text()='Edit']");
+    private String lnkListPanel ="//tbody//a[text()='%s']";
 
     //Elements
     private WebElement getLnkAddNew() {
@@ -38,6 +39,9 @@ public class CreatePanelPopup extends GeneralPage {
     private WebElement getLnkEdit() {
         return Constant.WEBDRIVER.findElement(lnkEdit);
     }
+    private WebElement getLnkListPanel(String value){
+        return Constant.WEBDRIVER.findElement(By.xpath(String.format(lnkListPanel,value)));
+    }
 
     //Methods
     public void sendKeyDisplayName(String displayName) {
@@ -58,5 +62,8 @@ public class CreatePanelPopup extends GeneralPage {
         getLnkEdit().click();
         sendKeyDisplayName("Logigear!#$%");
         getBtnOk().click();
+    }
+    public String getTextListPanel(String value){
+        return getLnkListPanel(value).getText();
     }
 }
