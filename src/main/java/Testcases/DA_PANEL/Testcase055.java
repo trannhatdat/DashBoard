@@ -1,5 +1,6 @@
 package Testcases.DA_PANEL;
 
+import Common.DriverManager;
 import DataObjects.AddPage;
 import DataObjects.User;
 import PageObjects.*;
@@ -22,16 +23,19 @@ public class Testcase055 extends BaseTest {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.clickGlobalSetting();
         dashboardPage.clickAddPage();
-        AddPage addPage = new AddPage("Page 5", "Select parent", "2", "Overview");
+        AddPage addPage = new AddPage("Page 8", "Select parent", "2", "Overview");
         AddPagePopup addPagePopup = new AddPagePopup();
         addPagePopup.addNewPage(addPage);
 
-        Thread.sleep(500);
+        Thread.sleep(1000);
         logger.info("Add new panel");
         addPagePopup.clickGlobalSetting();
         CreatePanelPopup createPanelPopup = new CreatePanelPopup();
-        createPanelPopup.addNewPanel("Logigear");
+        Thread.sleep(500);
+        createPanelPopup.clickCreatePanel();
+        createPanelPopup.addNewPanel("Logigear1");
 
+        Thread.sleep(500);
         PanelConfigrution panelConfigrution = new PanelConfigrution();
         panelConfigrution.clickBtnOK();
         Pages pages = new Pages();
@@ -39,6 +43,6 @@ public class Testcase055 extends BaseTest {
         EditPanelPopup editPanelPopup = new EditPanelPopup();
         editPanelPopup.sendkeyTxtFolder();
         editPanelPopup.clickBtnOK();
-
+        Assert.assertTrue(DriverManager.isAlertPresent());
     }
 }

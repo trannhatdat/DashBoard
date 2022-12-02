@@ -14,6 +14,7 @@ public class CreatePanelPopup extends GeneralPage {
     private final By btnCancel = By.xpath("//input[@id='Cancel']");
     private final By lnkEdit = By.xpath("//td[@class='center']/a[text()='Edit']");
     private String lnkListPanel ="//tbody//a[text()='%s']";
+    private final By lnkCreatePanel = By.xpath("//a[text()='Create Panel']");
 
     //Elements
     private WebElement getLnkAddNew() {
@@ -42,16 +43,15 @@ public class CreatePanelPopup extends GeneralPage {
     private WebElement getLnkListPanel(String value){
         return Constant.WEBDRIVER.findElement(By.xpath(String.format(lnkListPanel,value)));
     }
-
+    private WebElement getLnkCreatePanel(){
+        return Constant.WEBDRIVER.findElement(lnkCreatePanel);
+    }
     //Methods
     public void sendKeyDisplayName(String displayName) {
         getTxtDisplayName().sendKeys(displayName);
     }
 
     public void addNewPanel(String displayName) {
-        moveToAdminister();
-        clickPanels();
-        getLnkAddNew().click();
         sendKeyDisplayName(displayName);
         Select selectSeries = new Select(getDdlSeriesField());
         selectSeries.selectByIndex(1);
@@ -65,5 +65,8 @@ public class CreatePanelPopup extends GeneralPage {
     }
     public String getTextListPanel(String value){
         return getLnkListPanel(value).getText();
+    }
+    public void clickCreatePanel(){
+        getLnkCreatePanel().click();
     }
 }
