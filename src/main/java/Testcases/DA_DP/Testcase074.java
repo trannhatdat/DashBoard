@@ -8,6 +8,7 @@ import PageObjects.LoginPage;
 import Testcases.BaseTest;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
@@ -29,6 +30,8 @@ public class Testcase074 extends BaseTest {
         dataProfilesPage.clickAddNewProfile();
 
         logger.info("Select each Item Type and show obsever");
-        createProfilePage.selectAndShowEachItemType();
+        String observedResult = createProfilePage.selectAndShowEachItemType();
+        String expectedResult = "Test Modules | Test Cases | Test Objectives | Data Sets | Actions | Interface Entities | Test Results | Test Case Results | Test Suites | Bugs";
+        Assert.assertEquals(expectedResult, observedResult, "\"Related Data\" items are listed incorrectly corresponding to the \"Item Type\" items.");
     }
 }

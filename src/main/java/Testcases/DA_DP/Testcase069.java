@@ -9,6 +9,7 @@ import PageObjects.LoginPage;
 import Testcases.BaseTest;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Testcase069 extends BaseTest {
@@ -19,6 +20,7 @@ public class Testcase069 extends BaseTest {
         DataProfilesPage dataProfilesPage = new DataProfilesPage();
         DashboardPage dashboardPage = new DashboardPage();
         CreateProfilePage createProfilePage = new CreateProfilePage();
+        String alert1, alert2;
         User user = new User("administrator", "");
 
         logger.info("Navigate to Dashboard login page and login with 'administrator' username");
@@ -31,17 +33,20 @@ public class Testcase069 extends BaseTest {
         logger.info("Click on Next button");
         createProfilePage.clickNext();
         if (DriverManager.isAlertPresent() == true){
-            logger.info("Alert is displayed");
+            alert1 = "Alert is displayed";
             DriverManager.acceptAlert();
         }
-        else logger.info("Alert is not displayed");
+        else alert1 = "Alert is not displayed";
 
         logger.info("Click on Finish button");
         createProfilePage.clickFinish();
         if (DriverManager.isAlertPresent() == true){
-            logger.info("Alert is displayed");
+            alert2 = "Alert is displayed";
             DriverManager.acceptAlert();
         }
-        else logger.info("Alert is not displayed");
+        else alert2 = "Alert is not displayed";
+
+        Assert.assertEquals(alert1, "Alert is displayed", "Alert is not displayed");
+        Assert.assertEquals(alert2, "Alert is displayed", "Alert is not displayed");
     }
 }
