@@ -1,7 +1,6 @@
 package PageObjects;
 
 import Common.Constant;
-import Common.Utilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -30,6 +29,8 @@ public class GeneralPage {
     private final By btnHelp = By.xpath("//a[@href='help/Topics/Dashboard.html']");
     private final By btnLabManager = By.xpath("//li[@class='hasbg h-lab']/a");
     private final By listPage = By.xpath("//li[@class='mn-panels']/preceding-sibling::li/a");
+    private final By btnChooseTitle = By.xpath("//a[@title='Choose Panels']");
+    private String lnkNewPanel="//div[@class='pitem']//a[text()='%s']";
 
     //Elements
     protected WebElement getTabOverView() {
@@ -115,6 +116,8 @@ public class GeneralPage {
     protected List<WebElement> getListPage() {
         return Constant.WEBDRIVER.findElements(listPage);
     }
+    protected WebElement getLnkNewPanel(String value){return Constant.WEBDRIVER.findElement(By.xpath(String.format(lnkNewPanel,value)));}
+    protected WebElement getBtnChooseTitle(){return Constant.WEBDRIVER.findElement(btnChooseTitle);}
 
     //Methods
     public void gotoOverView() {
@@ -202,4 +205,8 @@ public class GeneralPage {
             System.out.print("| " + e.getText() + " |");
         });
     }
+    public void clickNewPanelCreated(String value){
+        getLnkNewPanel(value).click();
+    }
+    public void clickBtnChooseTitle(){this.getBtnChooseTitle().click();}
 }

@@ -12,6 +12,7 @@ public class CreatePanelPopup extends GeneralPage {
     private final By ddlSeriesFiled = By.xpath("//select[@id='cbbSeriesField']");
     private final By btnOk = By.xpath("//input[@id='OK']");
     private final By btnCancel = By.xpath("//input[@id='Cancel']");
+    private final By lnkEdit = By.xpath("//td[@class='center']/a[text()='Edit']");
 
     //Elements
     private WebElement getLnkAddNew() {
@@ -34,14 +35,28 @@ public class CreatePanelPopup extends GeneralPage {
         return Constant.WEBDRIVER.findElement(btnCancel);
     }
 
+    private WebElement getLnkEdit() {
+        return Constant.WEBDRIVER.findElement(lnkEdit);
+    }
+
     //Methods
-    public void addNewPanel(String displayName,String valueSeries) {
+    public void sendKeyDisplayName(String displayName) {
+        getTxtDisplayName().sendKeys(displayName);
+    }
+
+    public void addNewPanel(String displayName) {
         moveToAdminister();
         clickPanels();
         getLnkAddNew().click();
-        getTxtDisplayName().sendKeys(displayName);
+        sendKeyDisplayName(displayName);
         Select selectSeries = new Select(getDdlSeriesField());
         selectSeries.selectByIndex(1);
+        getBtnOk().click();
+    }
+
+    public void editPanel() {
+        getLnkEdit().click();
+        sendKeyDisplayName("Logigear!#$%");
         getBtnOk().click();
     }
 }

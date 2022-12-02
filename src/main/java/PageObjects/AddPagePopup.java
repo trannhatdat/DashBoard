@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-public class AddPagePopup {
+public class AddPagePopup extends GeneralPage{
     //Locators
     private final By txtPageName = By.xpath("//input[@id='name']");
     private final By sltParentPage = By.xpath("//select[@id='parent']");
