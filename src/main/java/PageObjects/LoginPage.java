@@ -32,21 +32,21 @@ public class LoginPage extends GeneralPage{
 
     //Methods
     public void selectRepository(String repos) {
-        Select repository = new Select(this.getSltRepository());
+        Select repository = new Select(getSltRepository());
         repository.selectByVisibleText(repos);
     }
 
     public void inputUsername(String username) {
-        this.getTxtUsername().sendKeys(username);
+        getTxtUsername().sendKeys(username);
     }
 
     public void inputPassword(String password) {
-        this.getTxtPassword().sendKeys(password);
+        getTxtPassword().sendKeys(password);
     }
 
     public void login(User user) {
         inputUsername(user.getUsername());
         inputPassword(user.getPassword());
-        this.getBtnLogin().click();
+        getBtnLogin().click();
     }
 }

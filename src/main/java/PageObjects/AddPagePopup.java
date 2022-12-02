@@ -66,15 +66,15 @@ public class AddPagePopup {
     }
 
     public void checkPublic() {
-        this.getChbPublic().click();
+        getChbPublic().click();
     }
 
     public void clickOK() {
-        this.getBtnOK().click();
+        getBtnOK().click();
     }
 
     public void clickCancel() {
-        this.getBtnCancel().click();
+        getBtnCancel().click();
     }
 
     public void addNewPage(AddPage addPage) {
