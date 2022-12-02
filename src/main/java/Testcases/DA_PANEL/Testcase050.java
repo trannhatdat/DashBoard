@@ -1,7 +1,7 @@
 package Testcases.DA_PANEL;
 
 import DataObjects.User;
-import PageObjects.AddNewPanelPopup;
+import PageObjects.CreatePanelPopup;
 import PageObjects.LoginPage;
 import Testcases.BaseTest;
 import org.apache.logging.log4j.LogManager;
@@ -9,8 +9,8 @@ import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 
 public class Testcase050 extends BaseTest {
-    private static final org.apache.log4j.Logger logger = org.apache.log4j.LogManager.getLogger(Testcase050.class);
-    @Test
+    private static final Logger logger = LogManager.getLogger(Testcase050.class);
+    @Test(description = "Verify that user is able to successfully edit \"Display Name\" of any Panel providing that the name is not duplicated with existing Panels'")
     public void DA_PANEL_TC050(){
         Logger logger = LogManager.getLogger();
         LoginPage loginPage = new LoginPage();
@@ -18,8 +18,11 @@ public class Testcase050 extends BaseTest {
         logger.info("Navigate to Dashboard login page and login with 'administrator' username");
         loginPage.login(user);
 
-        AddNewPanelPopup addNewPanelPopup = new AddNewPanelPopup();
+        CreatePanelPopup addNewPanelPopup = new CreatePanelPopup();
         addNewPanelPopup.addNewPanel("Logigear","Name");
+<<<<<<< HEAD
         //update
+=======
+>>>>>>> 63029e736e1ef29c1cd54b709bde2b6924704623
     }
 }

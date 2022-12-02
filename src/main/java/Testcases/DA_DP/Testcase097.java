@@ -3,27 +3,30 @@ package Testcases.DA_DP;
 import DataObjects.FilterCriteria;
 import DataObjects.User;
 import PageObjects.CreateProfilePage;
+import PageObjects.DashboardPage;
 import PageObjects.DataProfilesPage;
 import PageObjects.LoginPage;
 import Testcases.BaseTest;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 
 public class Testcase097 extends BaseTest {
-    private static final org.apache.log4j.Logger logger = org.apache.log4j.LogManager.getLogger(Testcase097.class);
-    @Test
+    private static final Logger logger = LogManager.getLogger(Testcase097.class);
+    @Test(description = "Verify that all settings are recorded and updated correctly when user click on \"Finish\" buttons")
     public void TC097() throws InterruptedException {
         LoginPage loginPage = new LoginPage();
+        DashboardPage dashboardPage = new DashboardPage();
         DataProfilesPage dataProfilesPage = new DataProfilesPage();
         CreateProfilePage createProfilePage = new CreateProfilePage();
         User user = new User("administrator", "");
         FilterCriteria fc = new FilterCriteria("and", "Recent result", "=", "failed");
 
-        logger.info("Verify that all settings are recorded and updated correctly when user click on \"Finish\" buttons");
         logger.info("Navigate to Dashboard login page and login with 'administrator' username");
         loginPage.login(user);
         logger.info("Navigate to Data Profiles page and click Add New link");
-        loginPage.moveToAdminister();
-        loginPage.clickDataProfiles();
+        dashboardPage.moveToAdminister();
+        dashboardPage.clickDataProfiles();
         dataProfilesPage.clickAddNewProfile();
 
         logger.info("Input Profile Name and click Next for navigate to Filter Fields Page");

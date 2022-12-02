@@ -123,10 +123,13 @@ public class CreateProfilePage extends GeneralPage {
         item.selectByVisibleText(itemType);
     }
 
-    public void selectAndShowEachItemType() {
+    public String selectAndShowEachItemType() {
+        String item = null;
         getListItemType().stream().forEach(e -> {
             selectItemType(e.getText().toLowerCase());
+            item.concat(" | " +e.getText());
         });
+        return item;
     }
 
     public void selectRelatedData(String rData) {

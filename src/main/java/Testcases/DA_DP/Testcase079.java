@@ -2,6 +2,7 @@ package Testcases.DA_DP;
 
 import DataObjects.User;
 import PageObjects.CreateProfilePage;
+import PageObjects.DashboardPage;
 import PageObjects.DataProfilesPage;
 import PageObjects.LoginPage;
 import Testcases.BaseTest;
@@ -12,6 +13,7 @@ public class Testcase079 extends BaseTest {
     @Test
     public void TC079() throws InterruptedException {
         LoginPage loginPage = new LoginPage();
+        DashboardPage dashboardPage = new DashboardPage();
         DataProfilesPage dataProfilesPage = new DataProfilesPage();
         CreateProfilePage createProfilePage = new CreateProfilePage();
         User user = new User("administrator", "");
@@ -20,8 +22,8 @@ public class Testcase079 extends BaseTest {
         logger.info("Navigate to Dashboard login page and login with 'administrator' username");
         loginPage.login(user);
         logger.info("Navigate to Data Profiles page and click Add New link");
-        loginPage.moveToAdminister();
-        loginPage.clickDataProfiles();
+        dashboardPage.moveToAdminister();
+        dashboardPage.clickDataProfiles();
         dataProfilesPage.clickAddNewProfile();
 
         logger.info("Input Profile Name and click Next");
