@@ -1,2 +1,7 @@
 /target
 /.idea
+.gitattributes
+.gitignore
+.iml
+ExtentReport.html
+testng.xml

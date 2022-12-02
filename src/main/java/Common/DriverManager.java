@@ -1,6 +1,7 @@
 package Common;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -46,5 +47,21 @@ public class DriverManager {
 
     public static void implicitlyWait() {
         Constant.WEBDRIVER.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    }
+    public static boolean isAlertPresent()
+    {
+        try
+        {
+            Constant.WEBDRIVER.switchTo().alert();
+            return true;
+        }
+        catch (NoAlertPresentException Ex)
+        {
+            return false;
+        }
+    }
+
+    public static String getAlertMsg() {
+        return Constant.WEBDRIVER.switchTo().alert().getText();
     }
 }
